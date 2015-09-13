@@ -17,51 +17,34 @@ Right hand flood fill algorithm
 
     while ( 1 ) {
 
-    TEST_0: 
-    ; Drzime se prave steny
-
+    TEST_0:         // Drzime se prave steny
     if ? ? ?
        ?   0
        ? ? ? TURN_RIGHT();
 
-
-    TEST_1:
-    ; Jsme zazdeni?
-
+    TEST_1:         // Jsme zazdeni?
     if ? 1 ?
        1   1
        ? 1 ? { DRAW_PIXEL(); EXIT; }
     
-   
-    TEST_3:
-    ; Slepa ulicka?  
-
+    TEST_3:         // Slepa ulicka?  
     if ? 0 ?
        1   1
        ? 1 ? { FILL_AND_STEP(); continue; }
 
-   
-    TEST_4:
-    ; Prekazka?
-
+    TEST_4:         // Prekazka?
     if ? 1 ?
        ?   ?
        ? ? ? { TURN_LEFT(); continue; }
 
-
-    TEST_5:
-    ; Brana?
-    ; . 0 .     ? 0 ?      ? 0 1
-    ; 1   ? =>  1   1  or  1   0
-    ; . . .     ? ? ?      ? ? ?
-
+    TEST_5:         // Brana?   . 0 .     ? 0 ?      ? 0 1
+                    //          1   ? =>  1   1  or  1   0
+                    //          . . .     ? ? ?      ? ? ?
     if ? ? ?
        1   ?
        ? ? ? { STEP(); continue; }
 
-   
-    TEST_6:
-    ; Slouporadi
+    TEST_6:         // Slouporadi
     if ? 0 1      1 0 ?      ? ? ?      ? ? ?
        ?   0  or  0   ?  or  0   ?  or  ?   0
        ? ? ?      ? ? ?      1 0 ?      ? 0 1 { STEP(); continue; }
@@ -72,12 +55,10 @@ Right hand flood fill algorithm
 
     ; --------------
     FILL_AND_STEP() {
-    
        DRAW_PIXEL;
        LOOPING_MODE = false;
        NOW_XY += DIRECTION;
        set MASK;
-    
     }
 
     ; -------------
@@ -86,7 +67,6 @@ Right hand flood fill algorithm
     if ( LOOPING_MODE ) {
     
        if ( BEGIN_LOOP_XY == NOW_XY )) {
-    
             if ( LOOP_DIRECTION == NOW_DIRECTION ) { 
                 FILL_AND_STEP(); 
                 return; 
@@ -96,9 +76,7 @@ Right hand flood fill algorithm
                 // lepsi je ale zakazat LOOPING_MODE dokud neprojdu krizovatkou
             }
         }
-        
     } else {
-    
         ; Je to krizovatka? Tzn. ma krome mezery vepredu jeste 2 mezery
         if  ! ( ? ? ?       ? ? ?      ? ? ?      ? ? ?
                 1   0  or   0   1  or  0   0  or  0   0
@@ -107,7 +85,6 @@ Right hand flood fill algorithm
             LOOP_BEGIN_XY = NOW_XY; 
             LOOP_DIRECTION = NOW_DIRECTION;
         }
-        
     }
     
     NOW_XY += DIRECTION;
