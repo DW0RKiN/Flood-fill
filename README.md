@@ -11,6 +11,9 @@ min-size-fill.asm
 
 Right hand flood fill algorithm 
 
+    LOOPING_MODE = false;
+    set DIRECTION;
+    set MASK;
 
     while ( 1 ) {
 
@@ -89,7 +92,7 @@ Right hand flood fill algorithm
                 return; 
             } else { 
                 LOOPING_MODE = false; 
-                NOW_DIRECTION = LOOP_DIRECTION;  // smer musime dodrzet, jinak se muze zacyklit
+                NOW_DIRECTION = LOOP_DIRECTION;  // smer musime dodrzet, hrozi zacykleni
                 // lepsi je ale zakazat LOOPING_MODE dokud neprojdu krizovatkou
             }
         }
