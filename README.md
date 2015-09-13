@@ -17,12 +17,12 @@ Right hand flood fill algorithm
 
     while ( 1 ) {
 
-    TEST_0:         // Drzime se prave steny
+    TEST_1:         // Drzime se prave steny
     if ? ? ?
        ?   0
        ? ? ? TURN_RIGHT();
 
-    TEST_1:         // Jsme zazdeni?
+    TEST_2:         // Jsme zazdeni?
     if ? 1 ?
        1   1
        ? 1 ? { DRAW_PIXEL(); EXIT; }
