@@ -1,5 +1,5 @@
 # Flood-fill
-Flood fill algorithms for ZX Spectrum
+Flood fill algorithms optimizing for minimum memory ( Z80 / ZX Spectrum )
 
 Contribution to competition Size Z80 Programming Challenge #5
 
@@ -7,7 +7,7 @@ http://www.retroprogramming.com/2015/07/z80-size-programming-challenge-5.html
 
 min-size-fill.asm 
 ------------------
-171 bytes
+171 bytes + 10 bytes stack
 
 Right hand flood fill algorithm 
 
